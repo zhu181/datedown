@@ -8,12 +8,11 @@
     Learn more under: https://pyscaffold.org/
 """
 import sys
-from pkg_resources import VersionConflict, require
+from importlib.metadata import version
+
 from setuptools import setup
 
-try:
-    require("setuptools>=38.3")
-except VersionConflict:
+if version("setuptools") < "38.3":
     print("Error: version of setuptools is too old (<38.3)!")
     sys.exit(1)
 
