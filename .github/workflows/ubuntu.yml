@@ -81,6 +81,8 @@ jobs:
         with:
           name: Artifacts-${{ matrix.python-version }}
           path: ./dist/*
+          overwrite: true
+          if--no-files-found: warn
       - name: Publish package
         if: ${{ matrix.pypi }}
         uses: pypa/gh-action-pypi-publish@release/v1
