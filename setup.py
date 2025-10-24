@@ -15,7 +15,8 @@ from setuptools import setup
 version = None
 
 try:
-    from importlib.metadata import version
+    from importlib.metadata import version as _version
+    version = _version
 except ImportError:
     from pkg_resources import VersionConflict, require
 
