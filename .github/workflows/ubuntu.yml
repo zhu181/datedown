@@ -82,9 +82,9 @@ jobs:
           name: Artifacts-${{ matrix.python-version }}
           path: ./dist/*
           overwrite: true
-          if--no-files-found: warn
+          if-no-files-found: warn
       - name: Publish package
-        if: ${{ matrix.pypi }}
+        if: ${{ matrix.pypi && github.ref == 'refs/heads/master' }}
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           password: ${{ secrets.PYPI_API_TOKEN }}
